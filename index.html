@@ -1,522 +1,183 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>VICTORY WORLD</title>
-	<link rel="stylesheet" href="CSS/styls.css">
-	<link rel="icon" type="image/jpg" href="Img/logoVer.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="Img/logoVer.png">
+    <title>VICTORY WORLD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="CSS/main.css">
+
 </head>
 
 <body>
-	<div class="block">
-		<div class="container">
-			<header class="hdr">
-				<div class="logo">
-					<img id="loteria" src="Img/Victorty.png" alt="">
-				</div>
 
-			</header>
-			<h1 class="ml3">FORMULARIO DE REGISTRACIÓN 1 USD</h1>
+    <!-- 
+    - #PRELOADER
+  -->
 
-			<div class="content">
-				<div class="subscribe">
-	
-				</div>
-				<form id="uploadForm"
-					action="https://script.google.com/macros/s/AKfycbyLFUqwGU8Hha63OhzUAX_QfLVQQx1Scd1lWv5kxnqXVWge8RKMVGubXYwdTo8Iup58qw/exec"
-					method="POST" enctype="multipart/form-data">
-					<input type="hidden" value="" name="fileContent" id="fileContent">
-					<input type="hidden" value="" name="filename" id="filename">
+    <div class="preload" data-preaload>
+        <img class="Logo" src="Img/Victorty.png" alt="Rocket Illustration">
+        <div class="circle"></div>
+    </div>
 
-					<div class="user-details">
-						<div class="input-box">
-							<label for="nombre" class="form-label">Nomes</label>
-							<input type="text" id="nombre" name="nombre" class="form-control"
-								placeholder="Ingrese su Nomes completo" required>
-						</div>
-						<div class="input-box">
-							<label for="email" class="form-label">E-mail</label>
-							<input type="email" id="email" name="email" class="form-control"
-								placeholder="Ingrese su E-mail" required>
-						</div>
-						<div class="input-box">
-							<label for="whatsApp" class="form-label">WhatsApp</label>
-							<input type="text" id="whatsApp" name="whatsApp" class="form-control"
-								placeholder="Ingrese su whatsApp" required>
-						</div>
-						<div class="input-box">
-							<label for="usuario" class="form-label">Usuário</label>
-							<input type="text" id="usuario" name="usuario" class="form-control"
-								placeholder="Usuário Cear " required>
-						</div>
-						<div class="input-box">
-							<label for="pais" class="form-label">País</label>
-							<input type="text" id="pais" name="pais" class="form-control"
-								placeholder="Ingrese su lugar de nacimiento" required>
-						</div>
-
-
-						<div class="input-box">
-							<label for="personal_responsable">Personal Responsável</label>
-							<select id="personal_responsable" name="personal_responsable" required>
-								<option value="" disabled selected>Selecione uma equipe</option>
-								<option value="Liliana">Liliana </option>
-								<option value="Vero">Vero</option>
-								<option value="Tatiane">Tatiane</option>
-								<option value="Ana María">Ana María</option>
-								<option value="Tayane">Tayane</option>
-							</select>
-						</div>
-
-						<div class="input-box">
-							<label for="pagar">Pagar em dólares</label>
-							<select id="pagar" name="pagar" required>
-								<option value="" disabled selected>Selecione um valor</option>
-								<option value="1 USD">1 USD</option>
-							</select>
-						</div>
-
-						<div class="input-box">
-							<label for="binance_de_Pay" class="form-label">Binance de Pay</label>
-							<input type="text" id="binance_de_Pay" name="binance_de_Pay" class="form-control"
-								placeholder="Ingrese su número de Binance" required>
-						</div>
-
-						<!-- Contenedor para la vista previa de la imagen -->
-						<div class="input-box">
-							<label class="form-label">Uma captura de tela do Binance Pay, por favor.</label>
-							<img id="imagePreview" alt="Vista previa de la imagen">
-						</div>
-
-						<div class="input-box">
-							<div class="container2">
-								<div class="folder">
-									<div class="front-side">
-										<div class="tip"></div>
-										<div class="cover"></div>
-									</div>
-									<div class="back-side cover"></div>
-								</div>
-								<label class="custom-file-upload">
-									<input required id="adjuntar" name="adjuntar" class="title" type="file"
-										accept="image/*" onchange="previewImage()" />
-									Choose a file
-								</label>
-							</div>
-						</div>
-
-
-					</div>
-
-					<div class="button" style="width: 100%; text-align: center;">
-						<input type="button" id="submitButton" value="ENVIAR DATOS" onclick="UploadFile();"
-							class="btn btn-success">
-					</div>
-
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- Modal -->
-	<div id="myModal" class="modal">
-		<div class="modal-content">
-			<img id="facu" src="Img/Viesc.png" alt="">
-			<div class="live">
-				<img id="Correct" src="Img/aprobar.png" alt="">
-
-			</div>
-			<span class="close" onclick="closeModal('')">&times;</span>
-			<div id="modalMessage"></div>
-		</div>
-	</div>
-
-
-	<dialog id="modal1" class="modal1">
-		<div class="modal-buttons">
-			<div >
-				<div class="logo">
-					<h1>A</h1>
-					<img id="MULTI" src="Img/CMULIT-Photoroom.png" alt="">
-				</div>
-			</div>
-			<button class="confirm" type="submit" id="openModalButton" onclick="document.location='proy.html'">10 USD
-			</button>
-			<div >
-				<div class="logo">
-					<h1>B</h1>
-					<img id="MULTI" src="img/BMULIT-Photoroom.png" alt="">
-				</div>
-			</div>
-			<button class="confirm" type="submit" id="openModalButton" onclick="document.location='about.html'">20 USD
-			</button>
-			<div >
-				<div class="logo">
-					<h1>C</h1>
-					<img id="MULTI" src="img/AMULIT-Photoroom.png" alt="">
-				</div>
-			</div>
-			<button class="confirm" type="submit" id="openModalButton" onclick="document.location='main.html'">30 USD
-			</button>
-			<button class="cancel" type="button" id="cancelBtn"
-				onclick="document.location='proy.html'">Cancelar</button>
-		</div>
-		</form>
-	</dialog>
-
-
-	   <!-- Loader -->
-     <div class="socket">
-        <div class="gel center-gel">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c1 r1">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c2 r1">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c3 r1">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c4 r1">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c5 r1">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c6 r1">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
+    <div class="container">
+        <div class="image-box">
+            <img src="Img/Victorty.png" alt="Rocket Illustration">
+            <p>FORMULARIO DE REGISTRACIÓN 1 USD</p>
         </div>
 
-        <div class="gel c7 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
+        <!-- CAMBIA ESTE DIV POR FORM -->
+        <form id="uploadForm"
+            action="https://script.google.com/macros/s/AKfycbxtFtwCN1DqOcjWGc9Rn1-s7J6JtA8AidFzjESOPVu91yY0vF9JbHCV9jbJ6z7ZObHV/exec"
+            method="POST" enctype="multipart/form-data">
+            <input type="hidden" id="fileContent" name="fileContent">
+            <input type="hidden" id="filename" name="filename">
 
-        <div class="gel c8 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c9 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c10 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c11 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c12 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c13 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c14 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c15 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c16 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c17 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c18 r2">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c19 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c20 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c21 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c22 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c23 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c24 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c25 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c26 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c28 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c29 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c30 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c31 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c32 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c33 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c34 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c35 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c36 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
-        </div>
-        <div class="gel c37 r3">
-            <div class="hex-brick h1"></div>
-            <div class="hex-brick h2"></div>
-            <div class="hex-brick h3"></div>
+
+            <div class="form-box">
+                <input type="hidden" value="" name="fileContent" id="fileContent">
+                <input type="hidden" value="" name="filename" id="filename">
+                <div id="loginForm">
+                    <div class="form-wrap">
+                        <div class="input-group">
+                            <label for="nombre" class="form-label">Names</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su Nomes completo"
+                                required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="text" id="email" name="email" placeholder="Ingrese su E-mail" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="whatsApp" class="form-label">WhatsApp</label>
+                            <input type="text" id="whatsApp" name="whatsApp" placeholder="Ingrese su whatsApp" required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-wrap">
+                        <div class="input-group">
+                            <label for="usuario" class="form-label">Usuário</label>
+                            <input type="text" id="usuario" name="usuario" placeholder="Usuário Cear" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="pais" class="form-label">País</label>
+                            <input type="text" id="pais" name="pais" placeholder="Ingrese su lugar de nacimiento"
+                                required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="personal_responsable" class="form-label">Personal Responsável</label>
+                            <select id="personal_responsable" name="personal_responsable" required>
+                                <option value="" disabled selected>Selecione uma equipe</option>
+                                <option value="Liliana">Liliana </option>
+                                <option value="Vero">Vero</option>
+                                <option value="Tatiane">Tatiane</option>
+                                <option value="Ana María">Ana María</option>
+                                <option value="Tayane">Tayane</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <h3>Pagar em dólares</h3>
+                    <div class="checkbox-group">
+                        <label class="option">
+                            <input type="checkbox" name="pagarUSD" value="1 USD" onclick="toggleAmenity(this)">
+                            <span>1 USD </span>
+                        </label>
+                        </label>
+                    </div>
+
+                    <div class="form-wrap">
+                        <div class="input-group">
+                            <label for="binance_de_Pay" class="form-label">Binance de Pay</label>
+                            <input type="text" id="binance_de_Pay" name="binance_de_Pay"
+                                placeholder="Ingrese su número de Binance" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-wrap">
+                        <!-- Contenedor para la vista previa de la imagen -->
+                        <div class="input-group">
+                            <label class="form-label">Uma captura de tela do Binance Pay, por favor.</label>
+                            <img id="imagePreview" alt="Vista previa de la imagen">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="container2">
+                                <div class="folder">
+                                    <div class="front-side">
+                                        <div class="tip"></div>
+                                        <div class="cover"></div>
+                                    </div>
+                                    <div class="back-side cover"></div>
+                                </div>
+                                <label class="custom-file-upload">
+                                    <input required id="adjuntar" name="adjuntar" class="title" type="file"
+                                        accept="image/*" onchange="previewImage()" />
+                                    Choose a file
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="submitButton" onclick="UploadFile()" disabled>Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader" >
+        <div class="external-shadow">
+            <div class="central">
+            </div>
         </div>
     </div>
 
 
-	<script>
-		// Función para verificar si todos los campos obligatorios están llenos
-		function checkFormCompletion() {
-			const requiredFields = document.querySelectorAll("input[required], select[required]");
-			let allFilled = true;
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <img id="facu" src="Img/Viesc.png" alt="">
+            <div class="live">
+                <img id="Correct" src="img/aprobar.png" alt="">
 
-			requiredFields.forEach(field => {
-				if (!field.value) {
-					allFilled = false; // Si algún campo está vacío, el formulario no está completo
-				}
-			});
-
-			const submitButton = document.getElementById("submitButton");
-			submitButton.disabled = !allFilled; // Habilita o deshabilita el botón
-		}
-
-		// Agregar un evento que se ejecute cada vez que el usuario cambie un campo
-		document.querySelectorAll("input[required], select[required]").forEach(input => {
-			input.addEventListener("input", checkFormCompletion);
-		});
-
-		// Llamar a la función al cargar la página
-		window.onload = checkFormCompletion;
-
-		// Función para enviar el formulario (simulación)
-		function UploadFile() {
-			// Mostrar mensaje de carga mientras se procesa
-			Swal.fire({
-				title: 'Enviando...',
-				text: 'Por favor espere...',
-				didOpen: () => {
-					Swal.showLoading()
-				}
-			});
-
-			// Simular un retraso (en un caso real, aquí iría la lógica de envío del formulario)
-			setTimeout(() => {
-				Swal.fire({
-					title: '¡Registro Exitoso!',
-					text: 'Tus datos fueron registrados correctamente.',
-					icon: 'success',
-					confirmButtonText: 'Cerrar'
-				}).then(() => {
-					// Reiniciar el formulario después del mensaje de éxito
-					document.getElementById("uploadForm").reset();
-					document.getElementById("submitButton").disabled = true; // Deshabilitar el botón nuevamente
-				});
-			}, 2000); // Simular un retraso de 2 segundos
-		}
-
-		// Función para mostrar el loader (la animación mientras se envía la información)
-		function showLoader() {
-			document.querySelector(".socket").style.display = "flex";
-		}
-
-		// Función para ocultar el loader cuando termine el proceso
-		function hideLoader() {
-			document.querySelector(".socket").style.display = "none";
-		}
-
-		// Función para cargar la imagen seleccionada como vista previa
-		function previewImage() {
-			const fileInput = document.getElementById("adjuntar");
-			const preview = document.getElementById("imagePreview");
-
-			if (fileInput.files && fileInput.files[0]) {
-				const reader = new FileReader();
-
-				reader.onload = function (e) {
-					preview.src = e.target.result;
-					preview.style.display = "block";
-				};
-
-				reader.readAsDataURL(fileInput.files[0]);
-			} else {
-				preview.src = "";
-				preview.style.display = "none";
-			}
-		}
-
-		// Función para manejar el envío del formulario
-		function UploadFile() {
-			const reader = new FileReader();
-			const file = document.getElementById("adjuntar").files[0];
-
-			showLoader(); // Mostrar el loader al iniciar el envío
-
-			// Cargar el contenido del archivo
-			reader.onload = function () {
-				document.getElementById("fileContent").value = reader.result;
-				document.getElementById("filename").value = file.name;
-
-				// Crear un objeto FormData con los datos del formulario
-				const formData = new FormData(document.getElementById("uploadForm"));
-
-				// Usar fetch para enviar los datos
-				fetch(document.getElementById("uploadForm").action, {
-					method: "POST",
-					body: formData
-				})
-					.then(response => response.json())
-					.then(data => {
-						hideLoader(); // Ocultar el loader cuando se termine
-
-						if (data.status === "success") {
-							const details = data.details;
-							const modalMessage = `
-                    <h2>${data.message}</h2>
-                    <p><strong>Nomes:</strong> ${details.nombre}</p>
-					<p><strong>E-mail:</strong> ${details.email}</p>
-					<p><strong>WhatsApp:</strong> ${details.whatsApp}</p>
-					<p><strong>Usuário:</strong> ${details.usuario}</p>
-                    <p><strong>País:</strong> ${details.pais}</p>
-                    <p><strong>Cor Responsável:</strong> ${details.personal_responsable}</p>
-					<p><strong>Pagar em dólares:</strong> ${details.pagar}</p>
-                    <p><strong>Binance de Pay:</strong> ${details.binance_de_Pay}</p>
-                    <p><strong>Archivo:</strong> <a href="${details.fileUrl}" target="_blank">Ver Archivo</a></p>
-                `;
-							document.getElementById("modalMessage").innerHTML = modalMessage;
-							document.getElementById("myModal").style.display = "block"; // Mostrar el modal con los detalles
-						} else {
-							Swal.fire("Error", data.message, "error"); // Mostrar alerta de error
-						}
-					})
-					.catch(error => {
-						hideLoader(); // Ocultar el loader si hay un error
-						Swal.fire("Error", "Hubo un problema al procesar los datos.", "error");
-						console.error(error);
-					});
-			};
-
-			// Leer el archivo seleccionado
-			reader.readAsDataURL(file);
-		}
-
-		// Función para cerrar el modal
-		function closeModal() {
-			document.getElementById("myModal").style.display = "none";
-			document.getElementById("uploadForm").reset(); // Reiniciar el formulario
-			document.getElementById("imagePreview").style.display = "none"; // Asegurarse de que la imagen no esté visible
-			document.getElementById("submitButton").disabled = true; // Deshabilitar el botón
-			window.location.href = "index.html"; // Redirige a index.html
-		}
-
-		// Cerrar el modal si se hace clic fuera de él
-		window.onclick = function (event) {
-			if (event.target == document.getElementById("myModal")) {
-				closeModal();
-			}
-		}
+            </div>
+            <span class="close" onclick="closeModal('')">&times;</span>
+            <div id="modalMessage"></div>
+        </div>
+    </div>
 
 
-	</script>
-	<script src="JS/scipt.js"></script>
-</body>
+    <script src="JS/java.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            // Espera 2 segundos (2000 milisegundos)
+            setTimeout(() => {
+                const preloader = document.querySelector(".preload");
+                if (preloader) {
+                    preloader.style.opacity = "0";
+                    preloader.style.pointerEvents = "none";
+                    preloader.style.transition = "opacity 0.5s ease-out";
+                    setTimeout(() => {
+                        preloader.style.display = "none";
+                    }, 500); // Espera que se complete la transición antes de ocultar completamente
+                }
+            }, 1000);
+        });
+    </script>
 
-</html>
+
+
+
 </body>
 
 </html>
