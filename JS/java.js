@@ -77,11 +77,11 @@ async function UploadFile() {
         title: '¿Confirmar envío?',
         html: `
             <p><b>Names:</b> ${nombre}</p>
-            <p><b>Marco:</b> ${marco}</p>
             <p><b>Usuario:</b> ${usuario}</p>
             <p><b>País:</b> ${pais}</p>
             <p><b>Responsável:</b> ${responsable}</p>
             <p><b>Pagar:</b> ${pagarUSD}</p>
+            <p><b>Marco:</b> ${marco}</p>
             <p><b>Binance de Pay:</b> ${binance}</p>
             <p><b>Fecha:</b> ${fecha}</p>
             <p><b>Hora:</b> ${hora}</p>
@@ -121,11 +121,11 @@ async function UploadFile() {
                     <h2>Formulario enviado con éxito</h2>
                     <div style="text-align:center; margin: 0 auto; max-width: 350px;">
                         <p><strong>Names:</strong> ${nombre}</p>
-                        <p><strong>Marco:</strong> ${marco}</p>
                         <p><strong>Usuario:</strong> ${usuario}</p>
                         <p><strong>País:</strong> ${pais}</p>
                         <p><strong>Responsable:</strong> ${responsable}</p>
                         <p><strong>Método de pago:</strong> ${pagarUSD}</p>
+                        <p><strong>Marco:</strong> ${marco}</p>
                         <p><strong>Binance de Pay:</strong> ${binance || 'No proporcionado'}</p>
                         <p><strong>Fecha:</strong> ${fecha}</p>
                         <p><strong>Hora:</strong> ${hora}</p>
