@@ -61,8 +61,6 @@ async function UploadFile() {
 
     // Obtener datos del formulario para mostrar en confirmación
     const nombre = document.getElementById("nombre").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const whatsApp = document.getElementById("whatsApp").value.trim();
     const usuario = document.getElementById("usuario").value.trim();
     const pais = document.getElementById("pais").value.trim();
     const responsable = document.getElementById("personal_responsable").value;
@@ -78,8 +76,6 @@ async function UploadFile() {
         title: '¿Confirmar envío?',
         html: `
             <p><b>Names:</b> ${nombre}</p>
-            <p><b>Email:</b> ${email}</p>
-            <p><b>WhatsApp:</b> ${whatsApp}</p>
             <p><b>Usuario:</b> ${usuario}</p>
             <p><b>País:</b> ${pais}</p>
             <p><b>Responsável:</b> ${responsable}</p>
@@ -123,8 +119,6 @@ async function UploadFile() {
                     <h2>Formulario enviado con éxito</h2>
                     <div style="text-align:center; margin: 0 auto; max-width: 350px;">
                         <p><strong>Names:</strong> ${nombre}</p>
-                        <p><strong>Email:</strong> ${email}</p>
-                        <p><strong>WhatsApp:</strong> ${whatsApp}</p>
                         <p><strong>Usuario:</strong> ${usuario}</p>
                         <p><strong>País:</strong> ${pais}</p>
                         <p><strong>Responsable:</strong> ${responsable}</p>
